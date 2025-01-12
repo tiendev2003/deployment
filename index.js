@@ -11,6 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/auth', authRoutes);
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the application' });
+});
 
 sequelize.sync().then(() => {
   app.listen(process.env.PORT || 3000, () => {
